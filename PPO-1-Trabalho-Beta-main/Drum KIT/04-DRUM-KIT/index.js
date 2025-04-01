@@ -15,7 +15,6 @@ const sons = {
 let volume = 1;
 let playbackRate = 1;
 
-// Pré-carregamento dos sons
 const sounds = {};
 Object.keys(sons).forEach(key => {
     const audio = new Audio(`./sounds/${sons[key]}`);
@@ -63,7 +62,6 @@ const ativarDiv = (evento) => {
     removerEfeito(letra);
 };
 
-// Controles de volume e velocidade
 const controlarVolume = (evento) => {
     volume = evento.target.value;
     document.getElementById('volume-display').textContent = `Volume: ${Math.round(volume * 100)}%`;
@@ -79,7 +77,6 @@ exibir(sons);
 document.getElementById('container').addEventListener('click', ativarDiv);
 window.addEventListener('keydown', ativarDiv);
 
-// Configurar sliders
 document.addEventListener('DOMContentLoaded', () => {
     const volumeSlider = document.getElementById('volume-slider');
     const speedSlider = document.getElementById('speed-slider');
@@ -87,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     volumeSlider.addEventListener('input', controlarVolume);
     speedSlider.addEventListener('input', controlarVelocidade);
 
-    // Defina valores iniciais se necessário
     volumeSlider.value = volume;
     speedSlider.value = playbackRate;
 });
